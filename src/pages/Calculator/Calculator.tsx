@@ -1,22 +1,39 @@
 
+import { useState } from "react"
 import "./calculator.css"
 
 
 const Calculator: React.FC = () => {
-
+    const [ourText, setOurText] = useState("")
     const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const { name } = e.target
-        console.log(name)
+        let action = e.currentTarget.getAttribute("data-value")
+        switch (action) {
+            case "AC":
+                setOurText("")
+                break
+            case "=":
+                setOurText((prev) => eval(prev).toString())
+                console.log(Number(ourText))
+                break
+            case "DEL":
+                setOurText((prev) => prev.slice(0, prev.length - 1))
+                break
+            default:
+                setOurText((prev) => prev + action)
+
+        }
+
+
     }
     return (
         <div className="calculator_container">
-            <input type="text" className="display" />
+            <input type="text" className="display" value={ourText} />
             <div className="buttons">
                 <button className="operator" data-value="AC" onClick={handleChange}>AC</button>
                 <button className="operator" data-value="DEL" onClick={handleChange}>DEL</button>
                 <button className="operator" data-value="%" onClick={handleChange}>%</button>
                 <button className="operator" data-value="/" onClick={handleChange}>/</button>
-                <button name="7" onClick={handleChange}>7</button>
+                <button data-value="7" onClick={handleChange}>7</button>
                 <button data-value="8" onClick={handleChange}>8</button>
                 <button data-value="9" onClick={handleChange}>9</button>
                 <button className="operator" data-value="*" onClick={handleChange}>*</button>

@@ -4,7 +4,7 @@ import Layout from "../layout/Layout";
 import FirstLesson from "../pages/FirstLesson/FirstLesson";
 import SecondLesson from "../pages/SecondLesson/SecondLesson";
 import Calculator from "../pages/Calculator/Calculator";
-import FetchTest from "../pages/Calculator/FetchTest/FetchTest";
+import FetchTest from "../pages/FetchTest/FetchTest";
 
 
 const routes: RouteObject[] = [
