@@ -12,6 +12,8 @@ const Header: React.FC = () => {
                 <ul>
                     <li> <Link to={"/section_1"}>Занятие 1</Link></li>
                     <li> <Link to={"/section_2"}>Занятие 2</Link></li>
+                    <li> <Link to={"/calculator"}>Калькулятор</Link></li>
+                    <li> <Link to={"/fetch_test"}>Фетч</Link></li>
                 </ul>
             </nav>
         </header>
